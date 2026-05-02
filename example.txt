@@ -1,17 +1,1 @@
-#mount example
-experimental:
-  docker:
-    nodes:
-    - name: "worker-1"
-      ports:
-        - "9090:9090"
-    - name: "worker-2"
-      volumes:
-        - "/tmp/data:/data"
-      env:
-        - "NODE_ROLE=worker"
-Step 2: Verify the mount path exists (only if you are using volumes)
-
-# mkdir -p /tmp/data
-
-Step 3: Create cluster
+kubectl replace --force -f prometheus-deployment.yaml
