@@ -5,4 +5,5 @@ brew install loft-sh/tap/vcluster
 sudo vcluster use driver docker
 vcluster platform start (cluster GUI)
 sudo vcluster create <cluster name> -f vcluster.yaml
+vcluster list
 sudo vcluster delete <cluster name>
