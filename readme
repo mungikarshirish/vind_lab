@@ -2,7 +2,7 @@ for mac only
 install Docker
 install Kubectl
 brew install loft-sh/tap/vcluster
-sudo cluster use driver docker
+sudo vcluster use driver docker
 vcluster platform start (cluster GUI)
 sudo vcluster create <cluster name> -f vcluster.yaml
 sudo vcluster delete <cluster name>
