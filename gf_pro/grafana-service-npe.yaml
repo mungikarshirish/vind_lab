@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  selector:
+    app: grafana
+  type: NodePort # Exposes Grafana externally
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 32000 # Access via <Node-IP>:32000
+
+
+###
+#Grafana: kubectl port-forward svc/grafana 3000:3000 -n monitoring
+#nodePort: 32000: The port you will use in your browser (e.g., http://<node-ip>:32000, if you don't specify this, Kubernetes will pick a random
+#one between 30000-32767
+###

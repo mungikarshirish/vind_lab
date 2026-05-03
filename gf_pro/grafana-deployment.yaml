@@ -18,3 +18,8 @@ spec:
           image: grafana/grafana
           ports:
             - containerPort: 3000
+
+
+###
+#Login: The default credentials for Grafana are usually Username: admin and Password: admin.
+###            
