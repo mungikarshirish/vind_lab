@@ -1,1 +1,3 @@
 kubectl replace --force -f prometheus-deployment.yaml
+kubectl -n kube-system rollout restart deployment/coredns
+kubectl rollout restart daemonset calico-node -n kube-system
