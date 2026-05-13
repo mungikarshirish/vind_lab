@@ -1,0 +1,23 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: ml-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 192.168.0.240-192.168.0.250 # CHANGE THIS to your desired range
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: layer2-advert
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - ml-pool
+
+
+#
+#kubectl edit configmap -n kube-system kube-proxy and we need to edit strictARP from false to true in ‘ipvs’ section
+#kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.9/config/manifests/metallb-native.yaml (use latest version of metallb), kubectl get pods -n metallb-system
+# MetalLB needs a pool of static ip addresses, so we create new file ip-pool.yaml (line 1 to 17) and apply it, kubectl apply -f ml-ip-pool.yaml
